@@ -47,9 +47,6 @@ function yes(url) {
     const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
     const proxyUrl = corsAnywhereUrl + url;
 
-    const fixing = document.getElementById('fixing')
-    fixing.setAttribute('href', proxyUrl)
-
     fetch(proxyUrl)
         .then(response => {
             if (response.ok) {
@@ -81,6 +78,8 @@ function yes(url) {
         })
         .catch(error => {
             console.error(`Error loading the page: ${error.message}`);
+            const fixing = document.getElementById('fixing')
+            fixing.setAttribute('href', proxyUrl)
         });
 }
 
